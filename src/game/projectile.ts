@@ -16,7 +16,7 @@ export class Projectile {
   constructor(pos: Point, angle: number, power: number, wind: number, type: WeaponType, color: string) {
     this.pos = { ...pos };
     const rad = (angle * Math.PI) / 180;
-    const speed = power * 0.15;
+    const speed = power * 0.25;
     this.vel = {
       x: Math.cos(rad) * speed,
       y: -Math.sin(rad) * speed,

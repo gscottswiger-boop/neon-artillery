@@ -136,8 +136,8 @@ export default function App() {
                 <div className={`w-2 h-2 md:w-3 md:h-3 rounded-full animate-pulse ${gameState.currentPlayer === 1 ? 'bg-pink-500' : 'bg-green-500'}`} />
               </div>
 
-              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
-                <div className="flex w-full md:w-auto gap-4 md:gap-8 justify-between">
+              <div className="flex flex-col lg:flex-row gap-4 md:gap-8 items-center w-full">
+                <div className="flex w-full lg:w-auto gap-4 md:gap-8 justify-between flex-1">
                   {/* Angle Control */}
                   <div className="flex flex-col gap-1 md:gap-2 flex-1">
                     <label className="text-[8px] md:text-[10px] uppercase tracking-widest opacity-60 flex items-center gap-1">
@@ -150,9 +150,9 @@ export default function App() {
                         max="180"
                         value={angle}
                         onChange={(e) => setAngle(parseInt(e.target.value))}
-                        className="w-full sm:w-24 md:w-40 accent-white"
+                        className="w-full sm:w-24 md:w-32 lg:w-40 accent-white"
                       />
-                      <span className="text-sm md:text-xl font-bold w-8 md:w-12">{angle}°</span>
+                      <span className="text-sm md:text-xl font-bold w-10 md:w-14 shrink-0">{angle}°</span>
                     </div>
                   </div>
 
@@ -168,23 +168,23 @@ export default function App() {
                         max="100"
                         value={power}
                         onChange={(e) => setPower(parseInt(e.target.value))}
-                        className="w-full sm:w-24 md:w-40 accent-white"
+                        className="w-full sm:w-24 md:w-32 lg:w-40 accent-white"
                       />
-                      <span className="text-sm md:text-xl font-bold w-8 md:w-12">{power}</span>
+                      <span className="text-sm md:text-xl font-bold w-10 md:w-14 shrink-0">{power}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex w-full md:w-auto gap-4 md:gap-8 items-end justify-between md:justify-end">
+                <div className="flex w-full lg:w-auto gap-4 md:gap-8 items-end justify-between lg:justify-end shrink-0">
                   {/* Weapon Selection */}
-                  <div className="flex flex-col gap-1 md:gap-2 flex-1 md:flex-none">
+                  <div className="flex flex-col gap-1 md:gap-2 flex-1 lg:flex-none">
                     <label className="text-[8px] md:text-[10px] uppercase tracking-widest opacity-60 hidden sm:block">Arsenal</label>
                     <div className="flex flex-wrap gap-1 md:gap-2">
                       {[WeaponType.STANDARD, WeaponType.HEAVY_ROLLER, WeaponType.SCATTER].map((w) => (
                         <button
                           key={w}
                           onClick={() => setWeapon(w)}
-                          className={`px-2 py-2 md:px-3 md:py-1 text-[10px] border rounded transition-all flex-1 md:flex-none whitespace-nowrap ${
+                          className={`px-2 py-2 md:px-3 md:py-1 text-[10px] border rounded transition-all flex-1 lg:flex-none whitespace-nowrap ${
                             weapon === w 
                               ? 'bg-white text-black border-white' 
                               : 'border-white/20 hover:border-white/50'
@@ -200,7 +200,7 @@ export default function App() {
                   <button
                     onClick={handleFire}
                     disabled={gameState.isFiring || gameState.isGameOver}
-                    className={`px-6 py-3 md:px-10 md:py-2 rounded-lg font-black text-base md:text-lg tracking-widest transition-all transform active:scale-95 w-full md:w-auto ${
+                    className={`px-6 py-3 md:px-10 md:py-2 rounded-lg font-black text-base md:text-lg tracking-widest transition-all transform active:scale-95 w-full lg:w-auto shrink-0 ${
                       gameState.isFiring || gameState.isGameOver
                         ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
                         : 'bg-white text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.5)]'
