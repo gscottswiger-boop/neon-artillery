@@ -15,6 +15,11 @@ body {
 
 canvas {
   image-rendering: pixelated;
+  touch-action: none;
+}
+
+button, input[type="range"] {
+  touch-action: manipulation;
 }
 
 input[type="range"] {
